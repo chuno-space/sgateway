@@ -42,10 +42,11 @@ User go to http://appclient.sgateway.local
 			-  call to `UserService` to get `User Profile`
 	- Know App process its own bussiness
 
-### Term
+### Terms
 - Route
-- Route Policy
+- Policy
 	- Check user or header
+	- 
 - Target
 
 
@@ -107,8 +108,30 @@ Examples
 	- Timeouts
 
 
+## Dependencies
+- YARP: Reverse Proxy - https://microsoft.github.io/reverse-proxy/
+	- RouteConfig
+	- ClusterConfig
+	- IProxyConfigProvider: ConfigurationConfigProvider  
+	- IProxyConfig
+	- Refs:
+		- https://github.com/microsoft/reverse-proxy/blob/main/src/ReverseProxy/Management/ProxyConfigManager.cs#L138
+		- https://github.com/microsoft/reverse-proxy/blob/main/src/ReverseProxy/Configuration/RouteConfig.cs
+- LettuceEncrypt: Automatic HTTPS certificate generation - https://github.com/natemcmaster/LettuceEncrypt
+	- ICertificateRepository
+	- IAccountStore
+	- ICertificateSource 
+	- IServerCertificateSelector
+	- Issues:
+		- https://github.com/natemcmaster/LettuceEncrypt/issues/236
+		- https://github.com/natemcmaster/LettuceEncrypt/issues/228
+		- 
+- Microsoft.AspNetCore.RateLimiting - https://learn.microsoft.com/en-us/aspnet/core/performance/rate-limit?view=aspnetcore-8.0
+- Microsoft.AspNetCore.OutputCaching -https://learn.microsoft.com/en-us/aspnet/core/performance/caching/output?view=aspnetcore-8.0
 
-
+- Authorization- https://learn.microsoft.com/en-us/aspnet/core/security/authorization/policies?view=aspnetcore-8.0
+	- IAuthorizationPolicyProvider
+	- https://learn.microsoft.com/en-us/aspnet/core/security/authorization/iauthorizationpolicyprovider?view=aspnetcore-8.0
 ## License
 https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository
 MIT License

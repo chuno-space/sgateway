@@ -109,6 +109,8 @@ Examples
 
 
 ## Dependencies
+- Grpc.Tools - https://learn.microsoft.com/en-us/aspnet/core/grpc/basics?view=aspnetcore-8.0
+	- projects should directly reference Grpc.Tools
 - YARP: Reverse Proxy - https://microsoft.github.io/reverse-proxy/
 	- RouteConfig
 	- ClusterConfig

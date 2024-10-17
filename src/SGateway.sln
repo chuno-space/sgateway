@@ -1,0 +1,80 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34902.65
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CHUNO.SGateway", "CHUNO.SGateway\CHUNO.SGateway.csproj", "{0CBF8BC1-8F89-4BE7-A774-3685F9EEFBB7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CHUNO.AuthService", "CHUNO.AuthService\CHUNO.AuthService.csproj", "{FCB04235-62A9-4AEC-9A51-3A5A5A5439CA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CHUNO.UserService", "CHUNO.UserService\CHUNO.UserService.csproj", "{0B3492F9-5188-4833-991A-B409FC0C3252}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Applications", "Applications", "{183A2755-2400-4387-8A7A-C9E7119E641D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frameworks", "Frameworks", "{B08CAF01-9C56-4C53-AE24-1D6FCF9B1C1D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libs", "Libs", "{567B9FA4-F94F-48FE-AFF4-34EE67A40301}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domains", "Domains", "{A357028A-9D33-4593-B09B-31FEB20C966B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Constracts", "Constracts", "{8E562B7E-3D64-4660-BFCF-C12E2D384B8C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_proto", "_proto", "{53985885-29AC-47F3-813C-4C80F539E186}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructures", "Infrastructures", "{8781334A-7B26-436F-9467-6E8DD4944580}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CHUNO.Framework.Domain", "Frameworks\CHUNO.Framework.Domain\CHUNO.Framework.Domain.csproj", "{CCCF738D-0EE2-457D-9692-9AD77DAFB2A1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CHUNO.UserService.Domain", "Domains\CHUNO.UserService.Domain\CHUNO.UserService.Domain.csproj", "{6BB5F214-DCF1-463E-AB66-BBE284789878}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_docs", "_docs", "{8E4DDAE4-0C3E-44B3-8160-7E7858164EC5}"
+	ProjectSection(SolutionItems) = preProject
+		..\README.local.md = ..\README.local.md
+		..\README.md = ..\README.md
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CHUNO.SGateway.Application", "Applications\CHUNO.SGateway.Application\CHUNO.SGateway.Application.csproj", "{590FE4D0-3B6F-49F4-A105-A6F8F70DF7D5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0CBF8BC1-8F89-4BE7-A774-3685F9EEFBB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CBF8BC1-8F89-4BE7-A774-3685F9EEFBB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CBF8BC1-8F89-4BE7-A774-3685F9EEFBB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CBF8BC1-8F89-4BE7-A774-3685F9EEFBB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCB04235-62A9-4AEC-9A51-3A5A5A5439CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCB04235-62A9-4AEC-9A51-3A5A5A5439CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCB04235-62A9-4AEC-9A51-3A5A5A5439CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCB04235-62A9-4AEC-9A51-3A5A5A5439CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B3492F9-5188-4833-991A-B409FC0C3252}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B3492F9-5188-4833-991A-B409FC0C3252}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B3492F9-5188-4833-991A-B409FC0C3252}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B3492F9-5188-4833-991A-B409FC0C3252}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCCF738D-0EE2-457D-9692-9AD77DAFB2A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCCF738D-0EE2-457D-9692-9AD77DAFB2A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCCF738D-0EE2-457D-9692-9AD77DAFB2A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCCF738D-0EE2-457D-9692-9AD77DAFB2A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BB5F214-DCF1-463E-AB66-BBE284789878}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BB5F214-DCF1-463E-AB66-BBE284789878}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BB5F214-DCF1-463E-AB66-BBE284789878}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BB5F214-DCF1-463E-AB66-BBE284789878}.Release|Any CPU.Build.0 = Release|Any CPU
+		{590FE4D0-3B6F-49F4-A105-A6F8F70DF7D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{590FE4D0-3B6F-49F4-A105-A6F8F70DF7D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{590FE4D0-3B6F-49F4-A105-A6F8F70DF7D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{590FE4D0-3B6F-49F4-A105-A6F8F70DF7D5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CCCF738D-0EE2-457D-9692-9AD77DAFB2A1} = {B08CAF01-9C56-4C53-AE24-1D6FCF9B1C1D}
+		{6BB5F214-DCF1-463E-AB66-BBE284789878} = {A357028A-9D33-4593-B09B-31FEB20C966B}
+		{590FE4D0-3B6F-49F4-A105-A6F8F70DF7D5} = {183A2755-2400-4387-8A7A-C9E7119E641D}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {84905174-D0C6-4221-A3FE-A24A475FF748}
+	EndGlobalSection
+EndGlobal

@@ -40,9 +40,12 @@ app.UseCors();
 
 app.MapGet("/healthcheck", async () =>
 {
-    return $"OK at {DateTime.Now}";
+    return $"AuthService: OK at {DateTime.Now}";
 });
-
+app.MapGet("/test", async () =>
+{
+    return $"AuthService: OK at {DateTime.Now}";
+});
 // Map for native-grpc
 app.MapGrpcService<GrpcUserService>()
 .RequireHost("*:5001");

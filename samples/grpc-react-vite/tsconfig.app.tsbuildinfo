@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/main.tsx","./src/service.ts","./src/vite-env.d.ts","./src/grpc-web-client-gen/proto/authserviceserviceclientpb.ts","./src/grpc-web-client-gen/proto/echoserviceclientpb.ts","./src/grpc-web-client-gen/proto/authservice_pb.d.ts","./src/grpc-web-client-gen/proto/echo_pb.d.ts"],"version":"5.6.3"}

@@ -13,9 +13,11 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.6" />
+    <PackageReference Include="Yarp.ReverseProxy" Version="2.2.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Applications\CHUNO.SGateway.Application\CHUNO.SGateway.Application.csproj" />
     <ProjectReference Include="..\Constracts\CHUNO.AuthService.Constract\CHUNO.AuthService.Constract.csproj" />
     <ProjectReference Include="..\Frameworks\CHUNO.Framework.Infrastructure\CHUNO.Framework.Infrastructure.csproj" />
   </ItemGroup>

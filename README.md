@@ -1,5 +1,11 @@
 # SGateway
 
+http://sgate.local:9090/health
+
+- AuthService
+	- http://auth.sgate.local:9090/test 
+	- http://auth.app1.sgate.local:9090/test
+
 ## Architecture
 User go to http://appclient.sgateway.local
 1. At first  request is handled by `SGateway` 
@@ -106,6 +112,15 @@ Examples
 	- PathRewriting
 	- Headers
 	- Timeouts
+
+## Host file
+127.0.0.1	sgate.local
+127.0.0.1	auth.sgate.local
+127.0.0.1	user.sgate.local
+127.0.0.1	app1.sgate.local
+127.0.0.1	auth.app1.sgate.local
+127.0.0.1	app2.sgate.local
+127.0.0.1	auth.app2.sgate.local
 
 
 ## Dependencies

@@ -1,5 +1,4 @@
-using CHUNO.AuthService.Constract.Proto;
-using Grpc.Net.Client;
+using CHUNO.SGateway;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using System.Net;
 
@@ -12,30 +11,18 @@ builder.WebHost.ConfigureKestrel(options =>
     });
 
 });
-// Add services to the container.
+
+builder.AddGatewayServices();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+
+app.MapGateway();
+
 
 app.MapGet("/healthcheck", async () =>
 {
-    return $"OK at {DateTime.Now}";
-});
-
-var channel = GrpcChannel.ForAddress("https://localhost:5001");
-var client = new Greeter.GreeterClient(channel);
-app.MapGet("/grpc", async () =>
-{
-    var reply = await client.SayHelloAsync(
-                      new HelloRequest { Name = "GreeterClient" });
-    Console.WriteLine("Greeting: " + reply.Message);
-    return reply.Message;
+    return $"SGateway: OK at {DateTime.Now}";
 });
 
 app.Run();
-
-internal record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}

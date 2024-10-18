@@ -36,7 +36,7 @@ namespace CHUNO.Framework.Domain.Primitives.Maybe
         /// <summary>
         /// Gets the default empty instance.
         /// </summary>
-        public static Maybe<T> None => new Maybe<T>(default);
+        public static Maybe<T> None => new Maybe<T>(default!);
 
         /// <summary>
         /// Creates a new <see cref="Maybe{T}"/> instance based on the specified value.
@@ -50,7 +50,7 @@ namespace CHUNO.Framework.Domain.Primitives.Maybe
         public static implicit operator T(Maybe<T> maybe) => maybe.Value;
 
         /// <inheritdoc />
-        public bool Equals(Maybe<T> other)
+        public bool Equals(Maybe<T>? other)
         {
             if (other is null)
             {
@@ -67,11 +67,11 @@ namespace CHUNO.Framework.Domain.Primitives.Maybe
                 return false;
             }
 
-            return Value.Equals(other.Value);
+            return Value!.Equals(other.Value);
         }
 
         /// <inheritdoc />
-        public override bool Equals(object obj) =>
+        public override bool Equals(object? obj) =>
             obj switch
             {
                 null => false,
@@ -81,6 +81,6 @@ namespace CHUNO.Framework.Domain.Primitives.Maybe
             };
 
         /// <inheritdoc />
-        public override int GetHashCode() => HasValue ? Value.GetHashCode() : 0;
+        public override int GetHashCode() => HasValue ? Value!.GetHashCode() : 0;
     }
 }

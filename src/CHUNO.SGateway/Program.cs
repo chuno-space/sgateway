@@ -1,4 +1,6 @@
 using CHUNO.SGateway;
+using CHUNO.SGateway.Data;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using System.Net;
 
@@ -20,9 +22,11 @@ var app = builder.Build();
 app.MapGateway();
 
 
-app.MapGet("/healthcheck", async () =>
+app.MapGet("/health", async ([FromServices] GatewayDBContext dBContext) =>
 {
-    return $"SGateway: OK at {DateTime.Now}";
+    var db = dBContext.Database;
+    var ok = await db.CanConnectAsync();
+    return $"SGateway: OK:{ok} at {DateTime.Now}";
 });
 
 app.Run();

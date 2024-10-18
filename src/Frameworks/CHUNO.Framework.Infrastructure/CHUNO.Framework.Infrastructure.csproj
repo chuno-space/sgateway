@@ -9,6 +9,12 @@
   <ItemGroup>
     <PackageReference Include="Grpc.AspNetCore" Version="2.66.0" />
     <PackageReference Include="Grpc.AspNetCore.Web" Version="2.66.0" />
+    <PackageReference Include="MediatR" Version="12.4.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\CHUNO.Framework.Core\CHUNO.Framework.Core.csproj" />
+    <ProjectReference Include="..\CHUNO.Framework.Domain\CHUNO.Framework.Domain.csproj" />
   </ItemGroup>
 
 </Project>

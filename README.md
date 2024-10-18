@@ -122,6 +122,9 @@ Examples
 127.0.0.1	app2.sgate.local
 127.0.0.1	auth.app2.sgate.local
 
+## Database
+dotnet ef migrations add InitialCreate
+dotnet ef database update
 
 ## Dependencies
 - Grpc.Tools - https://learn.microsoft.com/en-us/aspnet/core/grpc/basics?view=aspnetcore-8.0

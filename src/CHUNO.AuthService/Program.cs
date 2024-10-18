@@ -38,10 +38,11 @@ var app = builder.Build();
 app.UseGrpcWeb();
 app.UseCors();
 
-app.MapGet("/healthcheck", async () =>
+app.MapGet("/health", async () =>
 {
     return $"AuthService: OK at {DateTime.Now}";
 });
+
 app.MapGet("/test", async () =>
 {
     return $"AuthService: OK at {DateTime.Now}";

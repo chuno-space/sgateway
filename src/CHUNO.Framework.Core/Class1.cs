@@ -1,4 +1,4 @@
-﻿namespace CHUNO.SGateway.Domain
+﻿namespace CHUNO.Framework.Core
 {
     public class Class1
     {

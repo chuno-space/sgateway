@@ -12,9 +12,5 @@ namespace CHUNO.Framework.Domain.Abstractions
         /// </summary>
         DateTime? DeletedOnUtc { get; }
 
-        /// <summary>
-        /// Gets a value indicating whether the entity has been deleted.
-        /// </summary>
-        bool Deleted { get; }
     }
 }

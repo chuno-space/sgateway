@@ -12,17 +12,20 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.10">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.6" />
     <PackageReference Include="Yarp.ReverseProxy" Version="2.2.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Applications\CHUNO.SGateway.Application\CHUNO.SGateway.Application.csproj" />
     <ProjectReference Include="..\Constracts\CHUNO.AuthService.Constract\CHUNO.AuthService.Constract.csproj" />
+    <ProjectReference Include="..\Domains\CHUNO.SGateway.Domain\CHUNO.SGateway.Domain.csproj" />
+    <ProjectReference Include="..\Frameworks\CHUNO.Framework.Data.Sqlite\CHUNO.Framework.Data.Sqlite.csproj" />
+    <ProjectReference Include="..\Frameworks\CHUNO.Framework.Data\CHUNO.Framework.Data.csproj" />
     <ProjectReference Include="..\Frameworks\CHUNO.Framework.Infrastructure\CHUNO.Framework.Infrastructure.csproj" />
   </ItemGroup>
 
-	<ItemGroup>
-		<Protobuf Include="..\proto\authservice.proto" Link="protobuf\authservice.proto" AdditionalImportDirs="..\proto\" GrpcServices="Client" />
-	</ItemGroup>
 </Project>

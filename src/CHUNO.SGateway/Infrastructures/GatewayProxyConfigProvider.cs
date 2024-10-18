@@ -35,7 +35,7 @@ namespace CHUNO.SGateway.Infrastructures
 
         private IChangeToken? GetOnChangeToken()
         {
-            return _gatewayProxySource.ChangeToken;
+            return _gatewayProxySource.GetChangeToken();
         }
         private ConfigurationSnapshot ReadConfiguration()
         {

@@ -5,3 +5,4 @@
 **/*.local
 
 README.local.md
+samples/grpc-web-client/dist

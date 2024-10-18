@@ -38,9 +38,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_docs", "_docs", "{8E4DDAE4
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CHUNO.SGateway.Application", "Applications\CHUNO.SGateway.Application\CHUNO.SGateway.Application.csproj", "{590FE4D0-3B6F-49F4-A105-A6F8F70DF7D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CHUNO.Framework.Contract", "Frameworks\CHUNO.Framework.Contract\CHUNO.Framework.Contract.csproj", "{A4C3024C-0263-45C4-8387-34C995E510A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CHUNO.Framework.Contract", "Frameworks\CHUNO.Framework.Contract\CHUNO.Framework.Contract.csproj", "{A4C3024C-0263-45C4-8387-34C995E510A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CHUNO.AuthService.Constract", "Constracts\CHUNO.AuthService.Constract\CHUNO.AuthService.Constract.csproj", "{21801B7E-3572-4DB3-BCA3-BEF1BF2CA757}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CHUNO.AuthService.Constract", "Constracts\CHUNO.AuthService.Constract\CHUNO.AuthService.Constract.csproj", "{21801B7E-3572-4DB3-BCA3-BEF1BF2CA757}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CHUNO.Framework.Infrastructure", "Frameworks\CHUNO.Framework.Infrastructure\CHUNO.Framework.Infrastructure.csproj", "{043891CC-6F36-4741-86FC-8D8132BD0E3F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -80,6 +82,10 @@ Global
 		{21801B7E-3572-4DB3-BCA3-BEF1BF2CA757}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{21801B7E-3572-4DB3-BCA3-BEF1BF2CA757}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{21801B7E-3572-4DB3-BCA3-BEF1BF2CA757}.Release|Any CPU.Build.0 = Release|Any CPU
+		{043891CC-6F36-4741-86FC-8D8132BD0E3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{043891CC-6F36-4741-86FC-8D8132BD0E3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{043891CC-6F36-4741-86FC-8D8132BD0E3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{043891CC-6F36-4741-86FC-8D8132BD0E3F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -90,6 +96,7 @@ Global
 		{590FE4D0-3B6F-49F4-A105-A6F8F70DF7D5} = {183A2755-2400-4387-8A7A-C9E7119E641D}
 		{A4C3024C-0263-45C4-8387-34C995E510A7} = {B08CAF01-9C56-4C53-AE24-1D6FCF9B1C1D}
 		{21801B7E-3572-4DB3-BCA3-BEF1BF2CA757} = {8E562B7E-3D64-4660-BFCF-C12E2D384B8C}
+		{043891CC-6F36-4741-86FC-8D8132BD0E3F} = {B08CAF01-9C56-4C53-AE24-1D6FCF9B1C1D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {84905174-D0C6-4221-A3FE-A24A475FF748}

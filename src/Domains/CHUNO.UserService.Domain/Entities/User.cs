@@ -1,10 +1,5 @@
 ﻿using CHUNO.Framework.Domain.Abstractions;
 using CHUNO.Framework.Domain.Primitives;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CHUNO.UserService.Domain.Entities
 {

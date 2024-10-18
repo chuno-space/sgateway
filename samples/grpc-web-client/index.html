@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>gRPC-Web Example</title>
+  <script defer src="./dist/bundle.js"></script>
+</head>
+<body>
+  <h1>gRPC-Web Client Example</h1>
+  <button id="callGrpc">Call gRPC Service</button>
+
+  <script>
+    document.getElementById('callGrpc').addEventListener('click', () => {
+      // Call your gRPC-Web function here when the button is clicked
+      callGrpcService();
+    });
+  </script>
+</body>
+</html>

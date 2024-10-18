@@ -1,5 +1,5 @@
 import * as grpcWeb from 'grpc-web';
-import {GreeterClient} from './generated/authservice_grpc_web_pb';
+import {GreeterClient} from './generated/AuthserviceServiceClientPb';
 import {HelloReply, HelloRequest} from'./generated/authservice_pb';
 
 const client = new GreeterClient('http://localhost:5000');
@@ -20,7 +20,7 @@ function callGrpcService(){
       var message = response.getMessage();
       console.log(message);
       const ele = document.getElementById("message");
-      if(ele) ele.innerHTML = message;
+      if(ele) ele.innerHTML = "Response: " + message;
     });
     
     call.on('status', (status:grpcWeb.Status) => {

@@ -19,12 +19,17 @@ Add Directory contains 2 files to $PATH
 mkdir ./generated
 
 Run in ./bin folder
-./protoc.exe -I ../proto authservice.proto  --js_out=import_style=commonjs:../generated  --grpc-web_out=import_style=commonjs,mode=grpcwebtext:../generated
+./protoc.exe -I ../proto authservice.proto  --js_out=import_style=commonjs:../generated  --grpc-web_out=import_style=commonjs+dts,mode=grpcwebtext:../generated
 
-## Run
-npx webpack --config webpack.config.js
+## Run dev
 
+npm run dev
+
+## Build
+npm run build
+
+## Run on built
 https://www.npmjs.com/package/http-server
 npm install --global http-server
 
-http-server .
+npm run start

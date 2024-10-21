@@ -1,0 +1,16 @@
+syntax = "proto3";
+option csharp_namespace = "CHUNO.SGateway.Constract.Proto";
+
+package sgateway;
+
+service SGateway {
+	rpc ConfigUpdate(ConfigUpdateRequest) returns (ConfigUpdateResponse);
+}
+
+message ConfigUpdateRequest{
+
+}
+
+message ConfigUpdateResponse{
+
+}

@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option csharp_namespace = "CHUNO.Common.Constract.Proto";
+
+package chuno.common;
+
+message ResponseStatus {
+	bool Success = 1;
+	string Message = 2;
+	optional string DetailErrorMessage = 3;
+} 
+
+message CommonResponse{
+	ResponseStatus Status = 1;
+} 

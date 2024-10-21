@@ -1,9 +1,7 @@
 ﻿using CHUNO.SGateway.Domain.Entities;
-using Microsoft.Extensions.Configuration;
 using Yarp.ReverseProxy.Configuration;
-using static System.Collections.Specialized.BitVector32;
 
-namespace CHUNO.SGateway.Infrastructures
+namespace CHUNO.SGateway.Infrastructures.GatewayProxy
 {
     public static class ProxyConfigMapping
     {
@@ -58,7 +56,7 @@ namespace CHUNO.SGateway.Infrastructures
             {
                 Address = config.Destination,
                 Health = null,
-                Metadata =null,
+                Metadata = null,
                 Host = null
             });
 
@@ -67,10 +65,10 @@ namespace CHUNO.SGateway.Infrastructures
                 ClusterId = config.GetClusterId(),
                 LoadBalancingPolicy = null,
                 SessionAffinity = null,
-                HealthCheck =null,
+                HealthCheck = null,
                 HttpClient = null,
                 HttpRequest = null,
-                Metadata =  null,
+                Metadata = null,
                 Destinations = destinations,
             };
         }

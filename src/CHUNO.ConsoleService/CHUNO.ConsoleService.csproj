@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <UserSecretsId>bcdcebd0-14a5-4161-95c3-4b3c8c4fef49</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Constracts\CHUNO.ConsoleService.Constract\CHUNO.ConsoleService.Constract.csproj" />
+	  <ProjectReference Include="..\Constracts\CHUNO.SGateway.Constract\CHUNO.SGateway.Constract.csproj">
+		  <Aliases>SGatewayConstract</Aliases>
+	  </ProjectReference>
+    <ProjectReference Include="..\Domains\CHUNO.SGateway.Domain\CHUNO.SGateway.Domain.csproj" />
+    <ProjectReference Include="..\Frameworks\CHUNO.Framework.Infrastructure\CHUNO.Framework.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Usecases\" />
+  </ItemGroup>
+
+</Project>

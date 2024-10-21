@@ -1,0 +1,57 @@
+syntax = "proto3";
+option csharp_namespace = "CHUNO.ConsoleService.Constract.Proto";
+
+import "common.proto";
+
+package console;
+
+service AppClientService{
+	rpc RegisterAppClient(RegisterAppClientRequest) returns (RegisterAppClientResponse);
+	rpc DisableAppClient(DisableAppClientRequest) returns (DisableAppClientResponse);
+	rpc ApplyProxyConfig(ApplyProxyConfigRequest) returns (ApplyProxyConfigResponse);
+}
+
+message RegisterAppClientRequest{
+
+}
+message RegisterAppClientResponse{
+	chuno.common.ResponseStatus Status = 1;
+}
+
+message DisableAppClientRequest{
+
+}
+message DisableAppClientResponse{
+	
+	chuno.common.ResponseStatus Status = 1;
+}
+
+message ApplyProxyConfigRequest{
+
+}
+
+message ApplyProxyConfigResponse{
+	
+	chuno.common.ResponseStatus Status = 1;
+}
+
+
+service ProxyConfigService {
+	rpc AddProxyConfig(AddProxyConfigRequest) returns (AddProxyConfigResponse);
+	rpc UpdateProxyConfig(UpdateProxyConfigRequest) returns (UpdateProxyConfigResponse);
+	rpc DeleteProxyConfig(AddProxyConfigRequest) returns (UpdateProxyConfigResponse);
+}
+
+message AddProxyConfigRequest{
+
+}
+message AddProxyConfigResponse{
+	chuno.common.ResponseStatus Status = 1;
+}
+
+message UpdateProxyConfigRequest{
+
+}
+message UpdateProxyConfigResponse{
+	chuno.common.ResponseStatus Status = 1;
+}

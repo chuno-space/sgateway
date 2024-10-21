@@ -21,6 +21,7 @@
 
 	<ItemGroup>
 	  <Folder Include="Boundaries\Endpoints\" />
+	  <Folder Include="Usecases\" />
 	</ItemGroup>
 
 	<ItemGroup>

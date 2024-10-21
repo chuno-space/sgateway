@@ -1,13 +1,13 @@
 ﻿using CHUNO.SGateway.Data;
+using CHUNO.SGateway.Infrastructures.GatewayProxy.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Internal;
 using Microsoft.Extensions.Primitives;
 using System.Timers;
 using Yarp.ReverseProxy.Configuration;
 
-namespace CHUNO.SGateway.Infrastructures
+namespace CHUNO.SGateway.Infrastructures.GatewayProxy
 {
-    internal class GatewayProxyManager: IDisposable
+    public class GatewayProxyManager : IGatewayProxyUpdater, IDisposable
     {
         private readonly IConfiguration _configuration;
         private readonly System.Timers.Timer _timer;
@@ -15,18 +15,41 @@ namespace CHUNO.SGateway.Infrastructures
         private CancellationTokenSource _cts = new CancellationTokenSource();
         private IChangeToken? _changeToken;
         private IDisposable? _subscription;
-        private ConfigurationSnapshot _configurationSnapshot;
         private readonly IDbContextFactory<GatewayDBContext> _contextFactory;
-        public GatewayProxyManager(IDbContextFactory<GatewayDBContext> contextFactory, IConfiguration configuration) {
+        public GatewayProxyManager(IDbContextFactory<GatewayDBContext> contextFactory, IConfiguration configuration)
+        {
             _contextFactory = contextFactory;
             _configuration = configuration;
 
-            _timer = new System.Timers.Timer(30000);  // 5 seconds interval
-            _timer.Elapsed += OnTimerElapsed;
-            _timer.Start();
+            //_timer = new System.Timers.Timer(30000);  // 5 seconds interval
+            //_timer.Elapsed += OnTimerElapsed;
+            //_timer.Start();
+
+            //System.Threading.Timer timer1 = new System.Threading.Timer((Object obj) =>
+            //{
+            //    RaiseChanged();
+            //},null,  10*1000, 10 * 1000);
+          
 
             // Initial registration of change monitoring
             RegisterForChange();
+        }
+
+        public ConfigurationSnapshot ReadConfiguration()
+        {
+            //return ProxyConfigUtils.ReadConfiguration(_configuration);
+
+            return ReadDB();
+        }
+        public IChangeToken? GetChangeToken()
+        {
+            //return _configuration.GetReloadToken(); 
+            return _changeToken!;
+        }
+
+        public void ConfigUpdate()
+        {
+            RaiseChanged();
         }
 
         private void RegisterForChange()
@@ -37,9 +60,9 @@ namespace CHUNO.SGateway.Infrastructures
             _changeToken = new CancellationChangeToken(_cts.Token);
 
             IChangeToken configurationChangeToken;
-            _subscription = ChangeToken.OnChange(()=>
+            _subscription = ChangeToken.OnChange(() =>
             {
-                var newToken =_configuration.GetReloadToken();
+                var newToken = _configuration.GetReloadToken();
                 configurationChangeToken = newToken;
                 return newToken;
             }, () =>
@@ -52,11 +75,12 @@ namespace CHUNO.SGateway.Infrastructures
         {
             var cts = new CancellationTokenSource();
             var newChangeTken = new CancellationChangeToken(cts.Token);
-
+            var oldChangeToken = _changeToken;
             Interlocked.Exchange(ref _changeToken, newChangeTken);
             if (_cts != null)
             {
                 _cts.Cancel();
+                _cts.Dispose();
             }
             _cts = cts;
         }
@@ -69,7 +93,7 @@ namespace CHUNO.SGateway.Infrastructures
             var changed = true;
             if (changed)
             {
-                RaiseChanged();
+                //RaiseChanged();
             }
         }
 
@@ -84,14 +108,6 @@ namespace CHUNO.SGateway.Infrastructures
                 return snapshot;
             }
         }
-
-        public ConfigurationSnapshot ReadConfiguration()
-        {
-            //return ProxyConfigUtils.ReadConfiguration(_configuration);
-            
-            return ReadDB();
-        }
-
         public void Dispose()
         {
             _timer.Stop();
@@ -100,11 +116,6 @@ namespace CHUNO.SGateway.Infrastructures
             _subscription?.Dispose();
         }
 
-        public IChangeToken? GetChangeToken()
-        {
-            //return _configuration.GetReloadToken(); 
-            return _changeToken!;
-        } 
-        
+
     }
 }

@@ -1,5 +1,4 @@
-﻿
-namespace CHUNO.SGateway.Infrastructures
+﻿namespace CHUNO.SGateway.Infrastructures.GatewayProxy
 {
     public class GatewayProxyBackgroundService : BackgroundService
     {

@@ -22,6 +22,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Constracts\CHUNO.AuthService.Constract\CHUNO.AuthService.Constract.csproj" />
+    <ProjectReference Include="..\Constracts\CHUNO.SGateway.Constract\CHUNO.SGateway.Constract.csproj" />
     <ProjectReference Include="..\Domains\CHUNO.SGateway.Domain\CHUNO.SGateway.Domain.csproj" />
     <ProjectReference Include="..\Frameworks\CHUNO.Framework.Data.Sqlite\CHUNO.Framework.Data.Sqlite.csproj" />
     <ProjectReference Include="..\Frameworks\CHUNO.Framework.Data\CHUNO.Framework.Data.csproj" />

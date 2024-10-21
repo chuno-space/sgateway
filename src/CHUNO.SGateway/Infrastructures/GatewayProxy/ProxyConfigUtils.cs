@@ -3,7 +3,7 @@ using System.Security.Authentication;
 using Yarp.ReverseProxy.Configuration;
 using Yarp.ReverseProxy.Forwarder;
 
-namespace CHUNO.SGateway.Infrastructures
+namespace CHUNO.SGateway.Infrastructures.GatewayProxy
 {
     internal class ProxyConfigUtils
     {
@@ -44,7 +44,7 @@ namespace CHUNO.SGateway.Infrastructures
             };
         }
 
-        private static  RouteConfig CreateRoute(IConfigurationSection section)
+        private static RouteConfig CreateRoute(IConfigurationSection section)
         {
             if (!string.IsNullOrEmpty(section["RouteId"]))
             {

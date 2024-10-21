@@ -2,7 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace CHUNO.Framework.Infrastructure
+namespace CHUNO.Framework.Infrastructure.OpenApi
 {
     public static class OpenAPIExtensions
     {

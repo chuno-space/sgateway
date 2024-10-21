@@ -6,6 +6,7 @@ http://sgate.local:9090/health
 	- http://auth.sgate.local:9090/test 
 	- http://auth.app1.sgate.local:9090/test
 
+	-
 ## Architecture
 User go to http://appclient.sgateway.local
 1. At first  request is handled by `SGateway` 
@@ -125,6 +126,15 @@ Examples
 ## Database
 dotnet ef migrations add InitialCreate
 dotnet ef database update
+
+## Utils
+dotnet user-jwts create
+dotnet user-jwts create --name [subid]
+> dotnet user-jwts create --name 1.1.1.1 --claim unique_name=chumano --audience sgateway
+1ac58677
+dotnet user-jwts print 1ac58677 --show-all
+
+https://learn.microsoft.com/en-us/aspnet/core/security/authentication/jwt-authn?view=aspnetcore-8.0&tabs=windows
 
 ## Dependencies
 - Grpc.Tools - https://learn.microsoft.com/en-us/aspnet/core/grpc/basics?view=aspnetcore-8.0

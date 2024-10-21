@@ -1,7 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Globalization;
 
-namespace CHUNO.SGateway.Infrastructures
+namespace CHUNO.SGateway.Infrastructures.GatewayProxy
 {
     internal static class ConfigurationExtension
     {

@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Primitives;
 using Yarp.ReverseProxy.Configuration;
 
-namespace CHUNO.SGateway.Infrastructures
+namespace CHUNO.SGateway.Infrastructures.GatewayProxy
 {
     public class GatewayProxyConfig : IProxyConfig
     {

@@ -2,7 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using Yarp.ReverseProxy.Configuration;
 
-namespace CHUNO.SGateway.Infrastructures
+namespace CHUNO.SGateway.Infrastructures.GatewayProxy
 {
     internal class GatewayProxyConfigProvider : IProxyConfigProvider
     {
@@ -21,6 +21,11 @@ namespace CHUNO.SGateway.Infrastructures
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             //_configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
             _gatewayProxySource = gatewayProxySource;
+
+            _subscription = ChangeToken.OnChange(
+                _gatewayProxySource.GetChangeToken, 
+                UpdateSnapshot);
+
         }
 
         public void Dispose()
@@ -48,8 +53,7 @@ namespace CHUNO.SGateway.Infrastructures
             // First time load
             if (_snapshot is null)
             {
-                _subscription = ChangeToken.OnChange(GetOnChangeToken, UpdateSnapshot);
-                UpdateSnapshot();
+               UpdateSnapshot();
             }
 
             return _snapshot;
@@ -109,7 +113,7 @@ namespace CHUNO.SGateway.Infrastructures
             }
             public static void ConfigurationDataConversionFailed(ILogger logger, Exception exception)
             {
-              
+
             }
         }
     }

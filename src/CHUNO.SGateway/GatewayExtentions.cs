@@ -1,11 +1,13 @@
 ﻿using CHUNO.AuthService.Constract.Proto;
 using CHUNO.Framework.Data.Core;
 using CHUNO.SGateway.Data;
-using CHUNO.SGateway.Infrastructures;
 using CHUNO.Framework.Infrastructure;
 using Grpc.Net.Client;
 using Microsoft.EntityFrameworkCore;
 using Yarp.ReverseProxy.Configuration;
+using CHUNO.SGateway.Boundaries.Grpc;
+using CHUNO.SGateway.Infrastructures.GatewayProxy;
+using CHUNO.SGateway.Infrastructures.GatewayProxy.Interfaces;
 
 namespace CHUNO.SGateway
 {
@@ -26,17 +28,24 @@ namespace CHUNO.SGateway
                );
             services.AddDbContext<GatewayDBContext>(options => 
                 options.UseSqlite(connectionString),
-                optionsLifetime: ServiceLifetime.Singleton
+                optionsLifetime: ServiceLifetime.Singleton,
+                contextLifetime: ServiceLifetime.Scoped
                 );
-            //services.AddScoped<IDbContext>(serviceProvider => serviceProvider.GetRequiredService<GatewayDBContext>());
-            //services.AddScoped<IUnitOfWork>(serviceProvider => serviceProvider.GetRequiredService<GatewayDBContext>());
+            services.AddScoped<IDbContext>(serviceProvider => serviceProvider.GetRequiredService<GatewayDBContext>());
+            services.AddScoped<IUnitOfWork>(serviceProvider => serviceProvider.GetRequiredService<GatewayDBContext>());
 
          
             var configration = builder.Configuration.GetSection("ReverseProxy");
-            services.AddSingleton(sp => new GatewayProxyManager(
-                sp.GetRequiredService<IDbContextFactory<GatewayDBContext>>(), 
-                configration)
-            );
+            services.AddSingleton<GatewayProxyManager>(sp => {
+                return new GatewayProxyManager(
+                    sp.GetRequiredService<IDbContextFactory<GatewayDBContext>>(),
+                    configration);
+            });
+            services.AddSingleton<IGatewayProxyUpdater>(sp =>
+            {
+                var obj = sp.GetRequiredService<GatewayProxyManager>();
+                return obj;
+            });
 
             var proxyBuilder = services.AddReverseProxy()
                 .ConfigureHttpClient((context, handler) =>
@@ -69,6 +78,13 @@ namespace CHUNO.SGateway
             app.MapReverseProxy(builder =>
             {
             });
+        }
+
+
+        public static void UseInternalGrpc(this WebApplication app, string host)
+        {
+            app.MapGrpcService<GrpcGatewayService>()
+                .RequireHost(host);
         }
     }
 }

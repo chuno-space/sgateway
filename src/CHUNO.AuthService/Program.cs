@@ -47,6 +47,7 @@ app.MapGet("/test", async () =>
 {
     return $"AuthService: OK at {DateTime.Now}";
 });
+
 // Map for native-grpc
 app.MapGrpcService<GrpcUserService>()
 .RequireHost("*:5001");

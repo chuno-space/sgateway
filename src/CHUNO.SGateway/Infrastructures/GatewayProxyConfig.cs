@@ -5,7 +5,6 @@ namespace CHUNO.SGateway.Infrastructures
 {
     public class GatewayProxyConfig : IProxyConfig
     {
-        // Used to implement the change token for the state
         private readonly CancellationTokenSource _cts = new CancellationTokenSource();
 
         public GatewayProxyConfig(IReadOnlyList<RouteConfig> routes, IReadOnlyList<ClusterConfig> clusters)
@@ -23,24 +22,16 @@ namespace CHUNO.SGateway.Infrastructures
         /// <inheritdoc/>
         public string RevisionId { get; }
 
-        /// <summary>
-        /// A snapshot of the list of routes for the proxy
-        /// </summary>
-        public IReadOnlyList<RouteConfig> Routes { get; }
-
-        /// <summary>
-        /// A snapshot of the list of Clusters which are collections of interchangeable destination endpoints
-        /// </summary>
-        public IReadOnlyList<ClusterConfig> Clusters { get; }
-
-        /// <summary>
-        /// Fired to indicate the proxy state has changed, and that this snapshot is now stale
-        /// </summary>
-        public IChangeToken ChangeToken { get; }
-
         internal void SignalChange()
         {
             _cts.Cancel();
         }
+
+        // impelement interface
+        public IReadOnlyList<RouteConfig> Routes { get; }
+        public IReadOnlyList<ClusterConfig> Clusters { get; }
+
+        public IChangeToken ChangeToken { get; }
+
     }
 }

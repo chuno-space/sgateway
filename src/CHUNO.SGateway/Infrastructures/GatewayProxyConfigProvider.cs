@@ -12,11 +12,11 @@ namespace CHUNO.SGateway.Infrastructures
         private CancellationTokenSource? _changeToken;
         private bool _disposed;
         private IDisposable? _subscription;
-        private readonly GatewayProxySource _gatewayProxySource;
+        private readonly GatewayProxyManager _gatewayProxySource;
 
         public GatewayProxyConfigProvider(
             ILogger<GatewayProxyConfigProvider> logger,
-            GatewayProxySource gatewayProxySource)
+            GatewayProxyManager gatewayProxySource)
         {
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             //_configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
@@ -114,7 +114,7 @@ namespace CHUNO.SGateway.Infrastructures
         }
     }
 
-    internal class ConfigurationSnapshot : IProxyConfig
+    public class ConfigurationSnapshot : IProxyConfig
     {
         public List<RouteConfig> Routes { get; internal set; } = new List<RouteConfig>();
 

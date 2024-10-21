@@ -33,7 +33,7 @@ namespace CHUNO.SGateway
 
          
             var configration = builder.Configuration.GetSection("ReverseProxy");
-            services.AddSingleton(sp => new GatewayProxySource(
+            services.AddSingleton(sp => new GatewayProxyManager(
                 sp.GetRequiredService<IDbContextFactory<GatewayDBContext>>(), 
                 configration)
             );
@@ -47,7 +47,7 @@ namespace CHUNO.SGateway
 
             proxyBuilder.Services.AddSingleton<IProxyConfigProvider>(sp =>
             {
-                var gateProxySource = sp.GetRequiredService<GatewayProxySource>();
+                var gateProxySource = sp.GetRequiredService<GatewayProxyManager>();
                 return new GatewayProxyConfigProvider(
                     sp.GetRequiredService<ILogger<GatewayProxyConfigProvider>>(),
                     gateProxySource);

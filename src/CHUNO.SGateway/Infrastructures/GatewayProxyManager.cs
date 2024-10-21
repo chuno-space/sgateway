@@ -7,7 +7,7 @@ using Yarp.ReverseProxy.Configuration;
 
 namespace CHUNO.SGateway.Infrastructures
 {
-    internal class GatewayProxySource: IDisposable
+    internal class GatewayProxyManager: IDisposable
     {
         private readonly IConfiguration _configuration;
         private readonly System.Timers.Timer _timer;
@@ -17,7 +17,7 @@ namespace CHUNO.SGateway.Infrastructures
         private IDisposable? _subscription;
         private ConfigurationSnapshot _configurationSnapshot;
         private readonly IDbContextFactory<GatewayDBContext> _contextFactory;
-        public GatewayProxySource(IDbContextFactory<GatewayDBContext> contextFactory, IConfiguration configuration) {
+        public GatewayProxyManager(IDbContextFactory<GatewayDBContext> contextFactory, IConfiguration configuration) {
             _contextFactory = contextFactory;
             _configuration = configuration;
 
@@ -31,13 +31,6 @@ namespace CHUNO.SGateway.Infrastructures
 
         private void RegisterForChange()
         {
-
-            using (var context = _contextFactory.CreateDbContext())
-            {
-                var guiid = Guid.NewGuid().ToString();
-                //var a = context.GatewayRouteConfigs.FirstOrDefault();
-            }
-
             // https://github.com/dotnet/runtime/blob/24dd2bc956efb7485c667be6433aef107af793a9/src/libraries/Microsoft.Extensions.Configuration/src/ConfigurationManager.cs#L100
 
             _cts = new CancellationTokenSource();
@@ -80,10 +73,23 @@ namespace CHUNO.SGateway.Infrastructures
             }
         }
 
+        private ConfigurationSnapshot ReadDB()
+        {
+            using (var context = _contextFactory.CreateDbContext())
+            {
+                var guiid = Guid.NewGuid().ToString();
+                var routeConfigs = context.GatewayRouteConfigs.ToList();
+
+                var snapshot = routeConfigs.ToConfiugrationSnapshot();
+                return snapshot;
+            }
+        }
+
         public ConfigurationSnapshot ReadConfiguration()
         {
-            // DB To ConfigurationSnapshot
-            return ProxyConfigUtils.ReadConfiguration(_configuration);
+            //return ProxyConfigUtils.ReadConfiguration(_configuration);
+            
+            return ReadDB();
         }
 
         public void Dispose()

@@ -14,13 +14,13 @@ builder.WebHost.ConfigureKestrel(options =>
 
 });
 
+//builder.AddOpenApi();
 builder.AddGatewayServices();
 
 var app = builder.Build();
 
-
-app.MapGateway();
-
+//app.UseOpenApi();
+app.UseGateWay();
 
 app.MapGet("/health", async ([FromServices] GatewayDBContext dBContext) =>
 {

@@ -54,7 +54,7 @@ namespace CHUNO.SGateway
             });
         }
 
-        public static void MapGateway(this WebApplication app) {
+        public static void UseGateWay(this WebApplication app) {
             var channel = GrpcChannel.ForAddress("https://localhost:5001");
             var client = new Greeter.GreeterClient(channel);
 
